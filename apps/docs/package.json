@@ -1,9 +1,19 @@
 {
-  "name": "hope-ui-docs",
-  "version": "0.0.1",
+  "name": "@hope-ui/docs",
+  "version": "1.0.0-alpha.0",
   "private": true,
   "description": "Documentation of the Hope UI component library",
-  "author": "Fabien MARIE-LOUISE (https://github.com/fabien-ml)",
+  "homepage": "https://hope-ui.com",
+  "bugs": {
+    "url": "https://github.com/fabien-ml/hope-ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabien-ml/hope-ui.git",
+    "directory": "apps/docs"
+  },
+  "license": "MIT",
+  "author": "Fabien Marie-Louise <fabienml.dev@gmail.com>",
   "scripts": {
     "build": "vite build",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
@@ -14,13 +24,16 @@
   "dependencies": {
     "@felte/solid": "1.1.5",
     "@felte/validator-yup": "1.0.3",
-    "@hope-ui/solid": "workspace:*",
-    "@stitches/core": "1.2.8",
+    "@hope-ui/core": "workspace:*",
+    "@hope-ui/theme": "workspace:*",
     "prism-themes": "1.9.0",
     "prismjs": "1.27.0",
     "solid-app-router": "0.2.1",
     "solid-js": "1.4.0",
-    "solid-transition-group": "0.0.10",
     "yup": "0.32.11"
+  },
+  "devDependencies": {
+    "@types/prismjs": "1.26.0",
+    "vite-plugin-prismjs": "0.0.8"
   }
 }
