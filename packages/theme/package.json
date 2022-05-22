@@ -1,6 +1,6 @@
 {
   "name": "@hope-ui/theme",
-  "version": "1.0.0-alpha.0",
+  "version": "0.0.0",
   "private": false,
   "description": "The SolidJS component library you've hoped for.",
   "keywords": [
@@ -27,7 +27,7 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "solid": "./dist/source/index.js",
+      "solid": "./dist/source/index.jsx",
       "import": "./dist/esm/index.js",
       "browser": "./dist/esm/index.js",
       "require": "./dist/cjs/index.js",
@@ -48,7 +48,12 @@
     "test:watch": "jest --watch --passWithNoTests",
     "typecheck": "tsc --noEmit"
   },
-  "dependencies": {},
+  "dependencies": {
+    "lodash.merge": "4.6.2"
+  },
+  "devDependencies": {
+    "@types/lodash.merge": "4.6.6"
+  },
   "peerDependencies": {
     "solid-js": "^1.4.0"
   },
