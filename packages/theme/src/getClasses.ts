@@ -1,26 +1,27 @@
 import {
   ComponentThemeContract,
-  CompoundVariantClasses,
-  Variants,
-  VariantsClasses,
+  CompoundVariantClassesDefinition,
+  VariantClassesDefinitions,
+  VariantDefinitions,
   VariantsKeys,
 } from "./contract";
 
+interface GetClassesParams<T extends VariantDefinitions> {
+  variantsKeys: VariantsKeys<T>;
+  themeContract: ComponentThemeContract<T>;
+  variants: T;
+}
+
 /**
- * Return all compound variants classes that match the given props.
- *
- * @param variantsKeys The variants keys to loop through while filtering.
- * @param variants The variants to filter on
- * @param compoundVariantsClasses The compound variants classes to filter.
- * @returns All compound variants classes that match the given props.
+ * Return all compound variants classes that match a given set of variants.
  */
-function getCompoundVariantsClasses<T extends Variants>(
-  variants: T,
-  compoundVariantsClasses: CompoundVariantClasses<T>[],
-  variantsKeys: VariantsKeys<T>
+function getCompoundVariantsClasses<T extends VariantDefinitions>(
+  variantsKeys: VariantsKeys<T>,
+  compoundVariantsClasses: CompoundVariantClassesDefinition<T>[],
+  variants: T
 ): string {
   return compoundVariantsClasses
-    .filter(item => {
+    .filter(compoundVariant => {
       let keep = true;
 
       // Check if the compound variant matches the props keys.
@@ -30,12 +31,11 @@ function getCompoundVariantsClasses<T extends Variants>(
         }
 
         // The compound variant doesn't depend on this key
-        if (item.variants[key] == null) {
-          keep = true;
+        if (compoundVariant.variants[key] == null) {
           continue;
         }
 
-        keep = item.variants[key] === variants[key];
+        keep = compoundVariant.variants[key] === variants[key];
       }
 
       return keep;
@@ -45,35 +45,39 @@ function getCompoundVariantsClasses<T extends Variants>(
     .trim();
 }
 
-function getVariantsClasses<T extends Variants>(variants: T, variantsClasses: VariantsClasses<T>) {
-  return Object.keys(variantsClasses)
-    .filter((key: keyof T) => variants[key] != null)
-    .map((key: keyof T) => variantsClasses[key]?.[variants[key]] ?? "")
-    .join(" ")
-    .trim();
+/**
+ * Return all variants classes that match a given set of variants.
+ */
+function getVariantsClasses<T extends VariantDefinitions>(
+  variantsKeys: VariantsKeys<T>,
+  variantsClasses: VariantClassesDefinitions<T>,
+  variants: T
+) {
+  return (
+    Object.keys(variantsKeys)
+      // eslint-disable-next-line
+      // @ts-ignore
+      .map((key: keyof T) => variants[key] && variantsClasses[key]?.[String(variants[key])])
+      .filter(Boolean)
+      .join(" ")
+      .trim()
+  );
 }
 
 /**
- * Return all classes that match the given props.
- *
- * @param variantsKeys The variants keys to loop through while filtering.
- * @param variants The variants to filter on
- * @param themeContract The theme contract to filter.
- * @returns All classes that match the given props.
+ * Return all classes that match a given set of variants.
  */
-export function getClasses<T extends Variants>(
-  variants: T,
-  themeContract: ComponentThemeContract<T>,
-  variantsKeys: VariantsKeys<T>
-): string {
+export function getClasses<T extends VariantDefinitions>(params: GetClassesParams<T>): string {
+  const { variantsKeys, themeContract, variants } = params;
+
   const variantClasses = themeContract.variantsClasses
-    ? getVariantsClasses(variants, themeContract.variantsClasses)
+    ? getVariantsClasses(variantsKeys, themeContract.variantsClasses, variants)
     : "";
 
   const compoundVariantsClasses = getCompoundVariantsClasses(
-    variants,
+    variantsKeys,
     themeContract.compoundVariantsClasses ?? [],
-    variantsKeys
+    variants
   );
 
   return [themeContract.baseClasses, variantClasses, compoundVariantsClasses]

@@ -53,7 +53,7 @@ const fakeTheme: FakeThemeContract = {
   },
 };
 
-describe("filterCompoundVariantsClasses", () => {
+describe("getClasses", () => {
   it("should returns all classes that matches the given variants", () => {
     const variants: Partial<FakeVariants> = {
       variant: "solid",
@@ -62,7 +62,11 @@ describe("filterCompoundVariantsClasses", () => {
       compact: "false",
     };
 
-    const result = getClasses(variants, fakeTheme, fakeVariantsKeys);
+    const result = getClasses({
+      variantsKeys: fakeVariantsKeys,
+      themeContract: fakeTheme,
+      variants,
+    });
 
     expect(result).toBe("base solid primary md false solid+primary solid+primary+md");
   });
@@ -73,7 +77,11 @@ describe("filterCompoundVariantsClasses", () => {
       size: "md",
     };
 
-    const result = getClasses(variants, fakeTheme, fakeVariantsKeys);
+    const result = getClasses({
+      variantsKeys: fakeVariantsKeys,
+      themeContract: fakeTheme,
+      variants,
+    });
 
     expect(result).toBe("base solid md");
   });

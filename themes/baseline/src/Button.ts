@@ -12,7 +12,6 @@ export const Button: ButtonThemeContract = {
     },
     colorScheme: {
       primary: "",
-      secondary: "",
       accent: "",
       neutral: "",
       success: "",
@@ -27,11 +26,16 @@ export const Button: ButtonThemeContract = {
       lg: "",
       xl: "",
     },
+    compact: {
+      true: "",
+      false: "",
+    },
   },
   compoundVariantsClasses: [],
   defaultVariants: {
     variant: "solid",
     colorScheme: "primary",
     size: "md",
+    compact: false,
   },
 };
