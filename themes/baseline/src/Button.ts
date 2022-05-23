@@ -1,6 +1,6 @@
-import { ButtonThemeContract } from "../../contract";
+import { ButtonThemeContract } from "@hope-ui/theme";
 
-export const buttonTheme: ButtonThemeContract = {
+export const Button: ButtonThemeContract = {
   baseClasses: "",
   variantsClasses: {
     variant: {

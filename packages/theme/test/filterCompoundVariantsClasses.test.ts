@@ -1,38 +1,23 @@
-import { ComponentThemeContract, filterCompoundVariantsClasses, VariantsKeys } from "../src";
+import { ComponentThemeContract, getClasses, VariantsKeys } from "../src";
 
-export interface FakeVariantsThemeContract {
-  variant: {
-    solid: string;
-    subtle: string;
-  };
-  colorScheme: {
-    primary: string;
-    secondary: string;
-  };
-  size: {
-    sm: string;
-    md: string;
-  };
-}
+type FakeVariants = {
+  variant: "solid" | "subtle";
+  colorScheme: "primary" | "secondary";
+  size: "sm" | "md";
+  compact: "true" | "false";
+};
 
-export interface FakeVariantsProps {
-  variant?: keyof FakeVariantsThemeContract["variant"];
-  colorScheme?: keyof FakeVariantsThemeContract["colorScheme"];
-  size?: keyof FakeVariantsThemeContract["size"];
-}
+type FakeThemeContract = ComponentThemeContract<FakeVariants>;
 
-export type FakeThemeContract = ComponentThemeContract<
-  FakeVariantsThemeContract,
-  FakeVariantsProps
->;
-
-const fakeVariantsKeys: VariantsKeys<FakeVariantsProps> = {
+const fakeVariantsKeys: VariantsKeys<FakeVariants> = {
   variant: true,
   colorScheme: true,
   size: true,
+  compact: true,
 };
 
 const fakeTheme: FakeThemeContract = {
+  baseClasses: "base",
   variantsClasses: {
     variant: {
       solid: "solid",
@@ -46,17 +31,18 @@ const fakeTheme: FakeThemeContract = {
       sm: "sm",
       md: "md",
     },
+    compact: {
+      true: "true",
+      false: "false",
+    },
   },
   compoundVariantsClasses: [
     {
-      variant: "solid",
-      colorScheme: "primary",
+      variants: { variant: "solid", colorScheme: "primary" },
       classes: "solid+primary",
     },
     {
-      variant: "solid",
-      colorScheme: "primary",
-      size: "md",
+      variants: { variant: "solid", colorScheme: "primary", size: "md" },
       classes: "solid+primary+md",
     },
   ],
@@ -68,34 +54,27 @@ const fakeTheme: FakeThemeContract = {
 };
 
 describe("filterCompoundVariantsClasses", () => {
-  it("should returns all classes that matches the given props", () => {
-    const props: FakeVariantsProps = {
+  it("should returns all classes that matches the given variants", () => {
+    const variants: Partial<FakeVariants> = {
       variant: "solid",
       colorScheme: "primary",
       size: "md",
+      compact: "false",
     };
 
-    const result = filterCompoundVariantsClasses(
-      fakeVariantsKeys,
-      props,
-      fakeTheme.compoundVariantsClasses
-    );
+    const result = getClasses(variants, fakeTheme, fakeVariantsKeys);
 
-    expect(result).toBe("solid+primary solid+primary+md");
+    expect(result).toBe("base solid primary md false solid+primary solid+primary+md");
   });
 
-  it("should not returns classes that doesn't matches the given props", () => {
-    const props: FakeVariantsProps = {
+  it("should not returns classes that doesn't matches the given variants", () => {
+    const variants: Partial<FakeVariants> = {
       variant: "solid",
       size: "md",
     };
 
-    const result = filterCompoundVariantsClasses(
-      fakeVariantsKeys,
-      props,
-      fakeTheme.compoundVariantsClasses
-    );
+    const result = getClasses(variants, fakeTheme, fakeVariantsKeys);
 
-    expect(result).toBe("");
+    expect(result).toBe("base solid md");
   });
 });

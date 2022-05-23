@@ -1,6 +1,6 @@
-import { AlertThemeContract } from "../../contract";
+import { AlertThemeContract } from "@hope-ui/theme";
 
-export const alertTheme: AlertThemeContract = {
+export const Alert: AlertThemeContract = {
   root: {
     baseClasses: "relative flex items-center rounded px-4 py-3 text-base",
     variantsClasses: {
@@ -14,23 +14,31 @@ export const alertTheme: AlertThemeContract = {
        * Variant - solid
        * -----------------------------------------------------------------------------------------------*/
       {
-        variant: "solid",
-        status: "success",
+        variants: {
+          variant: "solid",
+          status: "success",
+        },
         classes: "bg-success-600 text-white",
       },
       {
-        variant: "solid",
-        status: "info",
+        variants: {
+          variant: "solid",
+          status: "info",
+        },
         classes: "bg-info-600 text-white",
       },
       {
-        variant: "solid",
-        status: "warning",
+        variants: {
+          variant: "solid",
+          status: "warning",
+        },
         classes: "bg-warning-600 text-white",
       },
       {
-        variant: "solid",
-        status: "danger",
+        variants: {
+          variant: "solid",
+          status: "danger",
+        },
         classes: "bg-danger-600 text-white",
       },
 
@@ -38,23 +46,31 @@ export const alertTheme: AlertThemeContract = {
        * Variant - subtle
        * -----------------------------------------------------------------------------------------------*/
       {
-        variant: "subtle",
-        status: "success",
+        variants: {
+          variant: "subtle",
+          status: "success",
+        },
         classes: "bg-success-100 text-success-700",
       },
       {
-        variant: "subtle",
-        status: "info",
+        variants: {
+          variant: "subtle",
+          status: "info",
+        },
         classes: "bg-info-100 text-info-700",
       },
       {
-        variant: "subtle",
-        status: "warning",
+        variants: {
+          variant: "subtle",
+          status: "warning",
+        },
         classes: "bg-warning-100 text-warning-700",
       },
       {
-        variant: "subtle",
-        status: "danger",
+        variants: {
+          variant: "subtle",
+          status: "danger",
+        },
         classes: "bg-danger-100 text-danger-700",
       },
 
@@ -62,23 +78,31 @@ export const alertTheme: AlertThemeContract = {
        * Variant - leftAccent
        * -----------------------------------------------------------------------------------------------*/
       {
-        variant: "leftAccent",
-        status: "success",
+        variants: {
+          variant: "leftAccent",
+          status: "success",
+        },
         classes: "bg-success-100 border-success-500 text-success-700",
       },
       {
-        variant: "leftAccent",
-        status: "info",
+        variants: {
+          variant: "leftAccent",
+          status: "info",
+        },
         classes: "bg-info-100 border-info-500 text-info-700",
       },
       {
-        variant: "leftAccent",
-        status: "warning",
+        variants: {
+          variant: "leftAccent",
+          status: "warning",
+        },
         classes: "bg-warning-100 border-warning-500 text-warning-700",
       },
       {
-        variant: "leftAccent",
-        status: "danger",
+        variants: {
+          variant: "leftAccent",
+          status: "danger",
+        },
         classes: "bg-danger-100 border-danger-500 text-danger-700",
       },
 
@@ -86,23 +110,31 @@ export const alertTheme: AlertThemeContract = {
        * Variant - topAccent
        * -----------------------------------------------------------------------------------------------*/
       {
-        variant: "topAccent",
-        status: "success",
+        variants: {
+          variant: "topAccent",
+          status: "success",
+        },
         classes: "bg-success-100 border-success-500 text-success-700",
       },
       {
-        variant: "topAccent",
-        status: "info",
+        variants: {
+          variant: "topAccent",
+          status: "info",
+        },
         classes: "bg-info-100 border-info-500 text-info-700",
       },
       {
-        variant: "topAccent",
-        status: "warning",
+        variants: {
+          variant: "topAccent",
+          status: "warning",
+        },
         classes: "bg-warning-100 border-warning-500 text-warning-700",
       },
       {
-        variant: "topAccent",
-        status: "danger",
+        variants: {
+          variant: "topAccent",
+          status: "danger",
+        },
         classes: "bg-danger-100 border-danger-500 text-danger-700",
       },
     ],
@@ -118,23 +150,31 @@ export const alertTheme: AlertThemeContract = {
        * Variant - subtle
        * -----------------------------------------------------------------------------------------------*/
       {
-        variant: "subtle",
-        status: "success",
+        variants: {
+          variant: "subtle",
+          status: "success",
+        },
         classes: "text-success-500",
       },
       {
-        variant: "subtle",
-        status: "info",
+        variants: {
+          variant: "subtle",
+          status: "info",
+        },
         classes: "text-info-500",
       },
       {
-        variant: "subtle",
-        status: "warning",
+        variants: {
+          variant: "subtle",
+          status: "warning",
+        },
         classes: "text-warning-500",
       },
       {
-        variant: "subtle",
-        status: "danger",
+        variants: {
+          variant: "subtle",
+          status: "danger",
+        },
         classes: "text-danger-500",
       },
 
@@ -142,23 +182,31 @@ export const alertTheme: AlertThemeContract = {
        * Variant - leftAccent
        * -----------------------------------------------------------------------------------------------*/
       {
-        variant: "leftAccent",
-        status: "success",
+        variants: {
+          variant: "leftAccent",
+          status: "success",
+        },
         classes: "text-success-500",
       },
       {
-        variant: "leftAccent",
-        status: "info",
+        variants: {
+          variant: "leftAccent",
+          status: "info",
+        },
         classes: "text-info-500",
       },
       {
-        variant: "leftAccent",
-        status: "warning",
+        variants: {
+          variant: "leftAccent",
+          status: "warning",
+        },
         classes: "text-warning-500",
       },
       {
-        variant: "leftAccent",
-        status: "danger",
+        variants: {
+          variant: "leftAccent",
+          status: "danger",
+        },
         classes: "text-danger-500",
       },
 
@@ -166,23 +214,31 @@ export const alertTheme: AlertThemeContract = {
        * Variant - topAccent
        * -----------------------------------------------------------------------------------------------*/
       {
-        variant: "topAccent",
-        status: "success",
+        variants: {
+          variant: "topAccent",
+          status: "success",
+        },
         classes: "text-success-500",
       },
       {
-        variant: "topAccent",
-        status: "info",
+        variants: {
+          variant: "topAccent",
+          status: "info",
+        },
         classes: "text-info-500",
       },
       {
-        variant: "topAccent",
-        status: "warning",
+        variants: {
+          variant: "topAccent",
+          status: "warning",
+        },
         classes: "text-warning-500",
       },
       {
-        variant: "topAccent",
-        status: "danger",
+        variants: {
+          variant: "topAccent",
+          status: "danger",
+        },
         classes: "text-danger-500",
       },
     ],

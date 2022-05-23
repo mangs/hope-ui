@@ -1,35 +1,17 @@
 import { ComponentThemeContract, VariantsKeys } from "./ComponentThemeContract";
 
-export interface AlertVariantsThemeContract {
-  variant: {
-    solid: string;
-    subtle: string;
-    leftAccent: string;
-    topAccent: string;
-  };
-  status: {
-    success: string;
-    info: string;
-    warning: string;
-    danger: string;
-  };
-}
-
-export interface AlertVariantsProps {
-  variant: keyof AlertVariantsThemeContract["variant"];
-  status: keyof AlertVariantsThemeContract["status"];
-}
+export type AlertVariants = {
+  variant: "solid" | "subtle" | "leftAccent" | "topAccent";
+  status: "success" | "info" | "warning" | "danger";
+};
 
 export type AlertParts = "root" | "icon" | "title" | "description";
 
-export type AlertPartsThemeContract = ComponentThemeContract<
-  AlertVariantsThemeContract,
-  AlertVariantsProps
->;
+export type AlertPartsThemeContract = ComponentThemeContract<AlertVariants>;
 
 export type AlertThemeContract = Record<AlertParts, AlertPartsThemeContract>;
 
-export const alertVariantsKeys: VariantsKeys<AlertVariantsProps> = {
+export const alertVariantsKeys: VariantsKeys<AlertVariants> = {
   variant: true,
   status: true,
 };

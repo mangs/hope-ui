@@ -49,15 +49,15 @@ export function HopeProvider(props: HopeProviderProps) {
     setColorMode(colorMode() === "dark" ? "light" : "dark");
   };
 
+  // When color mode changes update `document.body` dark mode class.
+  createEffect(() => toggleBodyDarkModeClass(colorMode()));
+
   const context: HopeContextValue = {
     theme,
     colorMode,
     setColorMode,
     toggleColorMode,
   };
-
-  // When color mode changes update `document.body` dark mode class.
-  createEffect(() => toggleBodyDarkModeClass(colorMode()));
 
   return <HopeContext.Provider value={context}>{props.children}</HopeContext.Provider>;
 }

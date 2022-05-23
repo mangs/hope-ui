@@ -1,8 +1,8 @@
 {
-  "name": "@hope-ui/core",
+  "name": "@hope-ui-themes/baseline",
   "version": "0.0.0",
   "private": false,
-  "description": "The SolidJS component library you've hoped for.",
+  "description": "A modern mininalist Hope UI theme.",
   "keywords": [
     "solid",
     "solidjs",
@@ -20,7 +20,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fabien-ml/hope-ui.git",
-    "directory": "packages/core"
+    "directory": "themes/baseline"
   },
   "license": "MIT",
   "author": "Fabien Marie-Louise <fabienml.dev@gmail.com>",
@@ -43,21 +43,10 @@
   "scripts": {
     "build": "rollup -c",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
-    "dev": "vite serve dev --host",
-    "test": "jest --passWithNoTests",
-    "test:watch": "jest --watch --passWithNoTests",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@floating-ui/dom": "0.5.1",
     "@hope-ui/theme": "workspace:^"
-  },
-  "peerDependencies": {
-    "@solid-aria/primitives": "^0.0.10",
-    "@solid-primitives/props": "^2.1.2",
-    "@solid-primitives/refs": "^0.2.0",
-    "@solid-primitives/utils": "^2.0.1",
-    "solid-js": "^1.4.0"
   },
   "publishConfig": {
     "access": "public"

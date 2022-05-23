@@ -6,12 +6,11 @@ module.exports = {
     extend: {
       colors: {
         primary: colors.cyan,
-        secondary: colors.pink,
-        accent: colors.teal,
+        accent: colors.violet,
         neutral: colors.slate,
-        success: colors.green,
+        success: colors.emerald,
         info: colors.blue,
-        warning: colors.yellow,
+        warning: colors.amber,
         danger: colors.red,
       },
     },
