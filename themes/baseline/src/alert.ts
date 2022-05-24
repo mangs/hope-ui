@@ -212,7 +212,7 @@ export const Alert: AlertThemeContract = {
     },
   },
   icon: {
-    baseClasses: "shrink-0 grow-0",
+    baseClasses: "shrink-0 grow-0 h-6 w-6",
     compoundVariantsClasses: createIconCompoundVariants(),
   },
   title: {

@@ -1,4 +1,4 @@
-import { ComponentThemeContract, getThemeClasses } from "../src";
+import { ComponentRootThemeContract, getThemeClasses } from "../src";
 
 interface FakeVariants {
   variant: "solid" | "subtle";
@@ -7,7 +7,7 @@ interface FakeVariants {
   compact: boolean;
 }
 
-type FakeThemeContract = ComponentThemeContract<FakeVariants>;
+type FakeThemeContract = ComponentRootThemeContract<FakeVariants>;
 
 const fakeTheme: FakeThemeContract = {
   baseClasses: "base",

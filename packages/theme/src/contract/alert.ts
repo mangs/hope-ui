@@ -1,7 +1,7 @@
-import { ComponentThemeContract } from "./component";
+import { ComponentPartThemeContract, ComponentRootThemeContract } from "./component";
 
 export interface AlertVariants {
-  variant:
+  variant?:
     | "solid"
     | "subtle"
     | "outline"
@@ -9,11 +9,12 @@ export interface AlertVariants {
     | "topAccent"
     | "rightAccent"
     | "bottomAccent";
-  status: "success" | "info" | "warning" | "danger";
+  status?: "success" | "info" | "warning" | "danger";
 }
 
-export type AlertParts = "root" | "icon" | "title" | "description";
-
-export type AlertPartsThemeContract = ComponentThemeContract<AlertVariants>;
-
-export type AlertThemeContract = Record<AlertParts, AlertPartsThemeContract>;
+export type AlertThemeContract = {
+  root: ComponentRootThemeContract<AlertVariants>;
+  icon: ComponentPartThemeContract<AlertVariants>;
+  title: ComponentPartThemeContract<AlertVariants>;
+  description: ComponentPartThemeContract<AlertVariants>;
+};

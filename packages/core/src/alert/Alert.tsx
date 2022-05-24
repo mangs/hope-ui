@@ -7,9 +7,7 @@ import { classNames } from "../utils/css";
 
 const hopeAlertClass = "hope-alert";
 
-type AlertOptions = Partial<AlertVariants>;
-
-type AlertComponentProps = PropsWithAs<AlertOptions, "div">;
+type AlertComponentProps = PropsWithAs<AlertVariants, "div">;
 
 function AlertComponent(props: AlertComponentProps) {
   const theme = useComponentTheme("Alert");
@@ -21,18 +19,14 @@ function AlertComponent(props: AlertComponentProps) {
   };
 
   // eslint-disable-next-line solid/reactivity
-  props = mergeProps(defaultProps, props) as AlertOptions;
-
+  props = mergeProps(defaultProps, props);
   const [local, others] = splitProps(props, ["as", "class", "variant", "status"]);
 
-  const classes = createMemo(() => {
-    return classNames(local.class, hopeAlertClass, getThemeClasses(props, theme().root));
-  });
-
-  const statusAccessor = () => local.status;
+  const themeClasses = createMemo(() => getThemeClasses(props, theme().root));
+  const classes = () => classNames(local.class, hopeAlertClass, themeClasses());
 
   const context: AlertContextValue = {
-    status: statusAccessor,
+    variants: () => local,
   };
 
   return (
@@ -43,17 +37,16 @@ function AlertComponent(props: AlertComponentProps) {
 }
 
 /**
- * Alert is used to communicate the state or status of a page,
- * feature or action
+ * Alert is used to communicate the state or status of a page, feature or action
  */
-export const Alert = createComponentWithAs<AlertOptions, "div">(AlertComponent);
+export const Alert = createComponentWithAs<AlertVariants, "div">(AlertComponent);
 
 /* -------------------------------------------------------------------------------------------------
  * Context
  * -----------------------------------------------------------------------------------------------*/
 
 interface AlertContextValue {
-  status: Accessor<AlertOptions["status"]>;
+  variants: Accessor<AlertVariants>;
 }
 
 const AlertContext = createContext<AlertContextValue>();

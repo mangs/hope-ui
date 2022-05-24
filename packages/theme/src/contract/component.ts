@@ -14,11 +14,18 @@ export interface CompoundVariantClassesDefinition<T extends VariantDefinitions> 
 }
 
 /**
- * Shape of a component theme.
+ * Theme shape of a component part.
  */
-export interface ComponentThemeContract<T extends VariantDefinitions> {
+export interface ComponentPartThemeContract<T extends VariantDefinitions> {
   baseClasses?: string;
   variantsClasses?: VariantClassesDefinitions<T>;
   compoundVariantsClasses?: Array<CompoundVariantClassesDefinition<T>>;
+}
+
+/**
+ * Theme shape of a component or root part of a component.
+ */
+export interface ComponentRootThemeContract<T extends VariantDefinitions>
+  extends ComponentPartThemeContract<T> {
   defaultVariants?: Partial<T>;
 }

@@ -1,11 +1,11 @@
-import { ComponentThemeContract } from "./contract";
+import { ComponentPartThemeContract } from "./contract";
 
 /**
  * Return all classes that match the given props.
  */
 export function getThemeClasses<T extends Record<string, any>>(
   props: T,
-  componentTheme: ComponentThemeContract<any>
+  componentTheme: ComponentPartThemeContract<any>
 ): string {
   // Get all variants classes that match the given props.
   const variantClasses = Object.keys(componentTheme.variantsClasses ?? {})
