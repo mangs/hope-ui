@@ -1,7 +1,7 @@
 import { HopeThemeContract } from "@hope-ui/theme";
 
-import { Alert } from "./Alert";
-import { Button } from "./Button";
+import { Alert } from "./alert";
+import { Button } from "./button";
 
 /**
  * A modern mininalist theme for Hope UI.

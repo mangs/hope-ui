@@ -13,6 +13,9 @@ export interface CompoundVariantClassesDefinition<T extends VariantDefinitions> 
   classes: string;
 }
 
+/**
+ * Shape of a component theme.
+ */
 export interface ComponentThemeContract<T extends VariantDefinitions> {
   baseClasses?: string;
   variantsClasses?: VariantClassesDefinitions<T>;

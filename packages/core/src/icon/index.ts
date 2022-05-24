@@ -1,2 +1,2 @@
-export * from "./createIcon";
-export * from "./Icon";
+export * from "./create-icon";
+export * from "./icon";

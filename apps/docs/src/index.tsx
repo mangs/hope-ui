@@ -1,7 +1,7 @@
 import "./index.css";
 
-import { baselineTheme } from "@hope-ui/baseline-theme";
 import { HopeProvider } from "@hope-ui/theme";
+import { baselineTheme } from "@hope-ui-themes/baseline";
 import Prism from "prismjs";
 import { Router } from "solid-app-router";
 import { render } from "solid-js/web";

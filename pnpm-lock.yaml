@@ -100,7 +100,7 @@ importers:
     specifiers:
       '@felte/solid': 1.1.5
       '@felte/validator-yup': 1.0.3
-      '@hope-ui/baseline-theme': workspace:*
+      '@hope-ui-themes/baseline': workspace:*
       '@hope-ui/core': workspace:*
       '@hope-ui/theme': workspace:*
       '@types/prismjs': 1.26.0
@@ -113,7 +113,7 @@ importers:
     dependencies:
       '@felte/solid': 1.1.5_solid-js@1.4.0
       '@felte/validator-yup': 1.0.3_yup@0.32.11
-      '@hope-ui/baseline-theme': link:../../packages/baseline-theme
+      '@hope-ui-themes/baseline': link:../../themes/baseline
       '@hope-ui/core': link:../../packages/core
       '@hope-ui/theme': link:../../packages/theme
       prism-themes: 1.9.0
@@ -124,12 +124,6 @@ importers:
     devDependencies:
       '@types/prismjs': 1.26.0
       vite-plugin-prismjs: 0.0.8_prismjs@1.27.0
-
-  packages/baseline-theme:
-    specifiers:
-      '@hope-ui/theme': workspace:^
-    dependencies:
-      '@hope-ui/theme': link:../theme
 
   packages/core:
     specifiers:
@@ -147,6 +141,12 @@ importers:
       lodash.merge: 4.6.2
     devDependencies:
       '@types/lodash.merge': 4.6.6
+
+  themes/baseline:
+    specifiers:
+      '@hope-ui/theme': workspace:^
+    dependencies:
+      '@hope-ui/theme': link:../../packages/theme
 
 packages:
 

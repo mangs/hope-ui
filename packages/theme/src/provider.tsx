@@ -13,7 +13,7 @@ import {
   getDefaultColorMode,
   saveColorModeToLocalStorage,
   toggleBodyDarkModeClass,
-} from "./colorMode";
+} from "./color-mode";
 import { HopeComponentNames, HopeThemeContract } from "./contract";
 
 export interface HopeContextValue {

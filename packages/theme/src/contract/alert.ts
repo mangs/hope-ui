@@ -1,4 +1,4 @@
-import { ComponentThemeContract } from "./ComponentThemeContract";
+import { ComponentThemeContract } from "./component";
 
 export interface AlertVariants {
   variant:

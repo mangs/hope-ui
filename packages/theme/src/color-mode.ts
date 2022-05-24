@@ -50,6 +50,10 @@ export function getDefaultColorMode(fallbackValue: ColorMode): ColorMode {
   if (persistedPreference) {
     return persistedPreference;
   } else if (fallbackValue === "system") {
+    if (isServer) {
+      return "light";
+    }
+
     const isSystemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     return isSystemDark ? "dark" : "light";
   } else {

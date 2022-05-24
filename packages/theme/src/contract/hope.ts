@@ -1,8 +1,11 @@
-import { ColorMode } from "../colorMode";
+import { ColorMode } from "../color-mode";
 import { DeepPartial } from "../utils";
-import { AlertThemeContract } from "./AlertThemeContract";
-import { ButtonThemeContract } from "./ButtonThemeContract";
+import { AlertThemeContract } from "./alert";
+import { ButtonThemeContract } from "./button";
 
+/**
+ * Shape of an Hope UI theme.
+ */
 export interface HopeThemeContract {
   initialColorMode: ColorMode;
   components: {

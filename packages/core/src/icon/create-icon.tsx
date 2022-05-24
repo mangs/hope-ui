@@ -1,7 +1,7 @@
 import { JSX } from "solid-js";
 
 import { createComponentWithAs, PropsWithAs } from "../utils/component";
-import { Icon } from "./Icon";
+import { Icon } from "./icon";
 
 interface CreateIconOptions {
   /**
