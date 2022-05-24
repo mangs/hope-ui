@@ -12,3 +12,5 @@ export interface HopeThemeContract {
 }
 
 export type OverrideHopeThemeContract = DeepPartial<HopeThemeContract>;
+
+export type HopeComponentNames = keyof HopeThemeContract["components"];

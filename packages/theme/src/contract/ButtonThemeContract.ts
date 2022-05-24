@@ -1,6 +1,6 @@
-import { ComponentThemeContract, VariantDefinitions, VariantsKeys } from "./ComponentThemeContract";
+import { ComponentThemeContract } from "./ComponentThemeContract";
 
-export interface ButtonVariants extends VariantDefinitions {
+export interface ButtonVariants {
   variant: "solid" | "subtle" | "outline" | "dashed" | "ghost";
   colorScheme: "primary" | "accent" | "neutral" | "success" | "info" | "warning" | "danger";
   size: "xs" | "sm" | "md" | "lg" | "xl";
@@ -8,10 +8,3 @@ export interface ButtonVariants extends VariantDefinitions {
 }
 
 export type ButtonThemeContract = ComponentThemeContract<ButtonVariants>;
-
-export const buttonVariantsKeys: VariantsKeys<ButtonVariants> = {
-  variant: true,
-  colorScheme: true,
-  size: true,
-  compact: true,
-};

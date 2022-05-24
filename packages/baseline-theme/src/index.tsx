@@ -4,7 +4,7 @@ import { Alert } from "./Alert";
 import { Button } from "./Button";
 
 /**
- * A modern minimalist Hope UI theme.
+ * A modern mininalist theme for Hope UI.
  */
 export const baselineTheme: HopeThemeContract = {
   initialColorMode: "system",

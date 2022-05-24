@@ -14,7 +14,7 @@ import {
   saveColorModeToLocalStorage,
   toggleBodyDarkModeClass,
 } from "./colorMode";
-import { HopeThemeContract } from "./contract";
+import { HopeComponentNames, HopeThemeContract } from "./contract";
 
 export interface HopeContextValue {
   theme: Accessor<HopeThemeContract>;
@@ -78,6 +78,18 @@ export function useTheme() {
   }
 
   return context.theme;
+}
+
+/**
+ * Primitive for accessing theme of a component in the `HopeProvider` context.
+ * @returns An accessor for the current component theme.
+ */
+export function useComponentTheme<T extends HopeComponentNames>(
+  componentName: T
+): Accessor<HopeThemeContract["components"][T]> {
+  const theme = useTheme();
+
+  return () => theme().components[componentName];
 }
 
 /* -------------------------------------------------------------------------------------------------

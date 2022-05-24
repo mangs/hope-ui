@@ -1,38 +1,9 @@
-@import "prism-themes/themes/prism-night-owl.min.css";
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* -------------------------------------------------------------------------------------------------
- * Prism.js
- * -----------------------------------------------------------------------------------------------*/
-
-.hope-ui-dark :not(pre) > code[class*="language-"],
-.hope-ui-dark pre[class*="language-"] {
-  background: var(--hope-colors-neutral3);
-}
-
-pre[class*="language-"] {
-  margin: 0;
-}
-
-.copy-to-clipboard-button {
-  position: absolute !important;
-  top: 12px !important;
-  right: 12px !important;
-  padding: 0 12px !important;
-  height: 24px;
-  border-radius: 4px !important;
-  background: var(--hope-colors-primary9) !important;
-  color: var(--hope-colors-neutral1) !important;
-  font-weight: 600 !important;
-  font-size: 14px;
-  line-height: 1;
-  cursor: pointer !important;
-}
-
-.copy-to-clipboard-button:hover {
-  background: var(--hope-colors-primary10) !important;
-  color: var(--hope-colors-neutral1) !important;
+@layer base {
+  body {
+    @apply antialiased;
+  }
 }

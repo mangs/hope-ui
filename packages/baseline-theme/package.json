@@ -1,8 +1,8 @@
 {
-  "name": "@hope-ui-themes/baseline",
+  "name": "@hope-ui/baseline-theme",
   "version": "0.0.0",
   "private": false,
-  "description": "A modern mininalist Hope UI theme.",
+  "description": "A modern mininalist theme for Hope UI.",
   "keywords": [
     "solid",
     "solidjs",
@@ -20,7 +20,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fabien-ml/hope-ui.git",
-    "directory": "themes/baseline"
+    "directory": "packages/baseline-theme"
   },
   "license": "MIT",
   "author": "Fabien Marie-Louise <fabienml.dev@gmail.com>",
